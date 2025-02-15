@@ -1,13 +1,9 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "<signature>",
-      "url": "https://github.com/cheng-lim/surreal/releases/download/<tag>/<app>.app.tar.gz"
-    },
-    "windows-x86_64": {
-      "signature": "<signature>",
-      "url" : "https://github.com/cheng-lim/surreal/releases/download/<tag>/<app>.0_x64_en-US.msi"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTSmNqWGJJN3JGaEhUckhYZmVESVIzREpvb2ZLYkdDM0gyQWhDRS96YlJCT1RpV0dINDl2V255NHJ2MTc4cWhPUTBNb2dHUmo4SWFjbC9aYXEvdE1iNkQzekVQaG5EMlFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzM5NjExMTgxCWZpbGU6U3VycmVhbC5hcHAudGFyLmd6Cks2MEEzWmtSei8vWkxkTlhIa2tqVlBnTVpEMldLOTRteUU0S3BJekRzc1NtZHlFVG1wTHNKV3J2MWFYNjMyNkt2SU5HMW0xbk1sZVo0MVc0NTVsdUNRPT0K",
+      "url": "https://github.com/cheng-lim/surreal/releases/download/alpha/Surreal.app.tar.gz"
     }
   }
 }
