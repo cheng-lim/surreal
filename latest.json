@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "platforms": {
+    "darwin-aarch64": {
+      "signature": "<signature>",
+      "url": "https://github.com/cheng-lim/surreal/releases/download/<tag>/<app>.app.tar.gz"
+    },
+    "windows-x86_64": {
+      "signature": "<signature>",
+      "url" : "https://github.com/cheng-lim/surreal/releases/download/<tag>/<app>.0_x64_en-US.msi"
+    }
+  }
+}
