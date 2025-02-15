@@ -4,6 +4,7 @@
   "description": "enables the default permissions",
   "windows": ["main"],
   "permissions": [
+    "process:default",
     "updater:default",
     "core:default",
     "dialog:default",
