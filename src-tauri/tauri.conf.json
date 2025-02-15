@@ -1,0 +1,42 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Surreal",
+  "version": "0.1.0",
+  "identifier": "com.surreal.photos",
+  "build": {
+    "frontendDist": "../out",
+    "devUrl": "http://localhost:3000",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDg0QzVCQTIzREIzNTcyODkKUldTSmNqWGJJN3JGaEZzMGR4eVBVNUQwcTFyZ2V2QmMyaEUyT0IzNEprbkJ2YUVlbGJNRzZUbSsK",
+      "endpoints": [""]
+    }
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Surreal",
+        "width": 1280,
+        "height": 832,
+        "maximized": true,
+        "resizable": true,
+        "fullscreen": false,
+        "minWidth": 640,
+        "minHeight": 416,
+        "hiddenTitle": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "createUpdaterArtifacts": true,
+    "targets": "all",
+    "icon": ["icons/icon.png", "icons/icon.ico"]
+  }
+}
