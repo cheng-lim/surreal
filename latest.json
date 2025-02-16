@@ -4,10 +4,6 @@
     "darwin-aarch64": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTSmNqWGJJN3JGaEhUckhYZmVESVIzREpvb2ZLYkdDM0gyQWhDRS96YlJCT1RpV0dINDl2V255NHJ2MTc4cWhPUTBNb2dHUmo4SWFjbC9aYXEvdE1iNkQzekVQaG5EMlFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzM5NjExMTgxCWZpbGU6U3VycmVhbC5hcHAudGFyLmd6Cks2MEEzWmtSei8vWkxkTlhIa2tqVlBnTVpEMldLOTRteUU0S3BJekRzc1NtZHlFVG1wTHNKV3J2MWFYNjMyNkt2SU5HMW0xbk1sZVo0MVc0NTVsdUNRPT0K",
       "url": "https://github.com/cheng-lim/surreal/releases/download/alpha/Surreal.app.tar.gz"
-    },
-     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUbGkxMjJYMkI3VjZpQU40SWt6bG9adG05NDgvNHEvZmF1ZWlhSmdFdU90YmxxUjBOcUNQd2JOSldxRlp6SHQ1di9Kb1d4VE02L3d2aDl3UkRxZWd3N2w2bEZYYjFncGdRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzM5MzYwMzczCWZpbGU6RXhwb18wLjQuMF94NjRfZW4tVVMubXNpCnI1Vnd4TWZwLzlaQzFUM0J0cFhEMmpaSXgwZEIwTDdhVTlNeUN4YmMvVVZwcXBaUjFqTmo5VnVkRll2QWdHanVwK2w5b0pUREYvT2tFUmVvcEhpNUNBPT0K",
-      "url" : "https://github.com/cheng-lim/expo-release/releases/download/alpha/Surreal_0.1.0_x64_en-US.msi"
     }
   }
 }
