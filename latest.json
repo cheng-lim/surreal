@@ -2,8 +2,8 @@
   "version": "0.1.0",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTSmNqWGJJN3JGaEhUckhYZmVESVIzREpvb2ZLYkdDM0gyQWhDRS96YlJCT1RpV0dINDl2V255NHJ2MTc4cWhPUTBNb2dHUmo4SWFjbC9aYXEvdE1iNkQzekVQaG5EMlFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzM5NjExMTgxCWZpbGU6U3VycmVhbC5hcHAudGFyLmd6Cks2MEEzWmtSei8vWkxkTlhIa2tqVlBnTVpEMldLOTRteUU0S3BJekRzc1NtZHlFVG1wTHNKV3J2MWFYNjMyNkt2SU5HMW0xbk1sZVo0MVc0NTVsdUNRPT0K",
-      "url": "https://github.com/cheng-lim/surreal/releases/download/alpha/Surreal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTSmNqWGJJN3JGaE0wZzZrcjNyLzJFSkNIZFQxZVlzajlwa1V5SXRsdko2eXlkazhUS0JJQldrT1dkTk5zSHpOak9lRXpsV0lCZDROR2VJeFpQaWZ5OWFhcGRZNzZheXdRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzQwMzgxNTAzCWZpbGU6U3VycmVhbC5hcHAudGFyLmd6CjE0dGRNMUNoRTR3TFJlc0M3SW9BaWVTaVNLTXI2dDR4bVJQc29VVHpuaFRNMUdsQTEwTU11NTFTL3QrWDAyMys5aHVpVGRtd0IxRTB4MWZTaHFoTEJnPT0K",
+      "url": "https://github.com/cheng-lim/surreal/releases/download/0.1.1/Surreal.app.tar.gz"
     }
   }
 }
