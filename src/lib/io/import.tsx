@@ -3,6 +3,7 @@ import { BaseDirectory, readFile, writeFile } from "@tauri-apps/plugin-fs";
 import { v4 as uuidv4 } from "uuid";
 import { compress, saveCompressed } from "@/lib/conversion/compression";
 import { generateImageUrls } from "@/lib/image/image";
+import { toast } from "@/hooks/use-toast";
 
 function base64ToUint8Array(base64: string) {
   const binaryString = atob(base64);
@@ -53,6 +54,10 @@ export async function importImages({
   });
 
   if (!Array.isArray(filePaths) || filePaths === null) {
+    toast({
+      title: "Image Select Error",
+      description: "You should at least selet 1 image.",
+    });
     return;
   }
 
@@ -68,14 +73,88 @@ export async function importImages({
     const currentIndex: number = Number(i) + 1;
     setCurrentFile(currentIndex);
     const filePath = filePaths[i];
-    const image: Uint8Array<ArrayBufferLike> = await readFile(filePath);
-    const base64Avif: string = await compress(image);
-    const avifBytes = base64ToUint8Array(base64Avif);
+
+    // Read image
+    let image: Uint8Array<ArrayBufferLike> | undefined = undefined;
+    try {
+      image = await readFile(filePath);
+    } catch (e) {
+      toast({
+        title: "Image Read Error",
+        description: `${e}`,
+      });
+    }
+    if (!image) {
+      toast({
+        title: "Image Read Error",
+        description: "Unable to read image",
+      });
+      continue;
+    }
+
+    let base64Avif: string | undefined = undefined;
+    // Convert image format to AVIF
+    try {
+      base64Avif = await compress(image);
+    } catch (e) {
+      toast({
+        title: "Compression Error",
+        description: `${e}`,
+      });
+    }
+    if (!base64Avif) {
+      toast({
+        title: "Compression Error",
+        description: "Unable to compress image",
+      });
+      continue;
+    }
+
+    // Convert base64 to uint 8 array
+    let avifBytes: Uint8Array<ArrayBuffer> | undefined = undefined;
+    try {
+      avifBytes = base64ToUint8Array(base64Avif);
+    } catch (e) {
+      toast({
+        title: "Conversion Error",
+        description: `${e}`,
+      });
+      continue;
+    }
+    if (!avifBytes) {
+      toast({
+        title: "Conversion Error",
+        description: "Unable to convert image",
+      });
+      continue;
+    }
+
     const imageId = uuidv4();
-    await writeFile(`images/${imageId}.avif`, avifBytes, {
-      baseDir: BaseDirectory.AppData,
-    });
-    await saveCompressed(imageId);
+
+    // write file
+    try {
+      await writeFile(`images/${imageId}.avif`, avifBytes, {
+        baseDir: BaseDirectory.AppData,
+      });
+    } catch (e) {
+      toast({
+        title: "Image Write Error",
+        description: `${e}`,
+      });
+      continue;
+    }
+
+    // save file
+    try {
+      await saveCompressed(imageId);
+    } catch (e) {
+      toast({
+        title: "Image Save Error",
+        description: `${e}`,
+      });
+      continue;
+    }
+
     imageIds.push(imageId);
 
     // update image urls
