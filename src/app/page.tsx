@@ -4,7 +4,7 @@ import Image from "next/image";
 import Navigator from "@/components/navigator/navigator";
 import ActionBar, { ActionType } from "@/components/action_bar/action_bar";
 import { useEffect, useState, useRef } from "react";
-import { BaseDirectory, readFile } from "@tauri-apps/plugin-fs";
+import { BaseDirectory, exists, mkdir, readFile } from "@tauri-apps/plugin-fs";
 import { Loader2 } from "lucide-react";
 import { generateImageUrls, getImageUrls } from "@/lib/image/image";
 import {
@@ -130,18 +130,42 @@ export default function Home() {
   const clamp = (value: number, min: number, max: number) =>
     Math.min(Math.max(value, min), max);
 
+  // Check Image directory and create one if not exists.
+  useEffect(() => {
+    exists("images", { baseDir: BaseDirectory.AppData }).then((result) => {
+      if (!result) {
+        mkdir("images", { baseDir: BaseDirectory.AppData });
+      }
+    });
+  }, []);
+
   // Load images and compute total file size.
   useEffect(() => {
+    // Load images
     const urls: string[] = [];
     let totalFileSize = 0;
+    let totalFileCount = 0;
+    const loadedFileUrls: string[] = [];
+
     async function loadImages() {
       const loadedImageUrls = await getImageUrls();
       try {
         for (const loadedImageUrl of loadedImageUrls) {
           // Read file data to determine its size.
-          const fileData = await readFile(`images/${loadedImageUrl}.avif`, {
-            baseDir: BaseDirectory.AppData,
-          });
+          let fileData: Uint8Array | string | undefined = undefined;
+          try {
+            fileData = await readFile(`images/${loadedImageUrl}.avif`, {
+              baseDir: BaseDirectory.AppData,
+            });
+          } catch (e) {
+            console.error(e);
+            continue;
+          }
+
+          if (!fileData) {
+            continue;
+          }
+
           if (fileData instanceof Uint8Array) {
             totalFileSize += fileData.length;
           } else if (typeof fileData === "string") {
@@ -150,11 +174,13 @@ export default function Home() {
           // Generate a Blob URL for the image.
           const url = await generateImageUrls(loadedImageUrl);
           urls.push(url);
+          totalFileCount += 1;
+          loadedFileUrls.push(loadedImageUrl);
         }
-        setTotalImageCount(loadedImageUrls.length);
+        setTotalImageCount(totalFileCount);
         setTotalImageSize(totalFileSize);
         setImageUrls(urls);
-        setStorageUrls(loadedImageUrls);
+        setStorageUrls(loadedFileUrls);
       } catch (error) {
         console.error("Error reading images:", error);
       } finally {
